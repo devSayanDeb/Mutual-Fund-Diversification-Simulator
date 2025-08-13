@@ -1,385 +1,191 @@
-/* Mobile Responsive Styles - 320px to 414px */
-@media screen and (max-width: 450px) {
-    /* Base adjustments */
+/* Mobile Responsive Styles - Updated with smaller text and alignment fixes */
+@media screen and (max-width: 414px) {
+    /* Base adjustments - reduced font sizes */
     body {
         padding: 12px;
-        font-size: 14px;
+        font-size: 13px; /* Reduced from 14px */
     }
 
-    /* Header adjustments */
+    /* Header adjustments - smaller text */
     .header {
-        margin-bottom: 24px;
-        padding: 20px 16px;
+        margin-bottom: 20px;
+        padding: 16px 12px; /* Reduced padding */
     }
 
     .header h1 {
-        font-size: 24px;
-        margin-bottom: 8px;
+        font-size: 20px; /* Reduced from 24px */
+        margin-bottom: 6px;
+        line-height: 1.3;
     }
 
     .header p {
-        font-size: 16px;
+        font-size: 14px; /* Reduced from 16px */
+        line-height: 1.4;
     }
 
     /* Main grid - stack vertically on mobile */
     .main-grid {
         display: block;
-        gap: 20px;
+        gap: 16px; /* Reduced gap */
     }
 
-    /* Card adjustments */
+    /* Card adjustments - smaller text and padding */
     .input-card,
     .results-card {
-        padding: 20px 16px;
-        margin-bottom: 20px;
+        padding: 16px 12px; /* Reduced padding */
+        margin-bottom: 16px;
     }
 
     .section-title {
-        font-size: 18px;
-        margin-bottom: 16px;
+        font-size: 16px; /* Reduced from 18px */
+        margin-bottom: 12px;
+        line-height: 1.3;
     }
 
     .section-title::after {
-        width: 120px;
+        width: 100px; /* Reduced width */
     }
 
     .section-divider {
-        margin: 20px 0;
+        margin: 16px 0; /* Reduced margin */
     }
 
-    /* Form adjustments */
+    /* Form adjustments - smaller text */
     .form-group {
-        margin-bottom: 16px;
+        margin-bottom: 14px;
     }
 
     .form-group label {
-        font-size: 14px;
-        margin-bottom: 6px;
+        font-size: 12px; /* Reduced from 14px */
+        margin-bottom: 4px;
+        line-height: 1.3;
     }
 
     .form-group input,
     .form-group select {
-        padding: 12px;
-        font-size: 16px; /* Prevents zoom on iOS */
+        padding: 10px; /* Reduced from 12px */
+        font-size: 14px; /* Reduced from 16px */
+        line-height: 1.4;
     }
 
     /* Split inputs - stack on mobile */
     .split-inputs {
         display: block;
-        gap: 12px;
+        gap: 10px;
     }
 
     .split-inputs .form-group:first-child {
-        margin-bottom: 12px;
+        margin-bottom: 10px;
     }
 
-    /* Date picker adjustments */
+    /* Date picker adjustments - smaller elements */
     .date-input {
-        padding: 12px 40px 12px 12px;
-        font-size: 16px;
+        padding: 10px 36px 10px 10px;
+        font-size: 14px;
     }
 
     .date-picker-icon {
-        right: 12px;
-        width: 18px;
-        height: 18px;
+        right: 10px;
+        width: 16px;
+        height: 16px;
     }
 
     .custom-date-picker {
-        left: -8px;
-        right: -8px;
-        margin-top: 4px;
+        left: -6px;
+        right: -6px;
+        margin-top: 2px;
     }
 
     .date-picker-header {
-        padding: 16px;
+        padding: 12px;
     }
 
     .current-month-year {
-        font-size: 16px;
-        min-width: 140px;
+        font-size: 14px;
+        min-width: 120px;
     }
 
     .nav-btn {
-        width: 28px;
-        height: 28px;
-        font-size: 16px;
+        width: 24px;
+        height: 24px;
+        font-size: 14px;
     }
 
     .date-picker-calendar {
-        padding: 16px 8px;
+        padding: 12px 6px;
     }
 
     .calendar-day {
-        width: 36px;
-        height: 36px;
-        font-size: 12px;
+        width: 32px;
+        height: 32px;
+        font-size: 11px;
     }
 
     .calendar-day-header {
-        padding: 8px;
-        font-size: 10px;
+        padding: 6px;
+        font-size: 9px;
     }
 
     .date-picker-footer {
-        padding: 16px;
-        gap: 8px;
+        padding: 12px;
+        gap: 6px;
     }
 
     .date-picker-btn {
-        padding: 8px 16px;
-        font-size: 14px;
+        padding: 6px 12px;
+        font-size: 12px;
     }
 
     /* Toggle adjustments */
     .toggle-group {
-        gap: 12px;
-        margin-bottom: 16px;
+        gap: 10px;
+        margin-bottom: 14px;
     }
 
     .toggle-switch {
-        width: 50px;
-        height: 28px;
-        border-radius: 14px;
+        width: 44px;
+        height: 24px;
+        border-radius: 12px;
     }
 
     .toggle-switch::before {
-        width: 20px;
-        height: 20px;
+        width: 18px;
+        height: 18px;
         top: 3px;
         left: 3px;
     }
 
     .toggle-switch.active::before {
-        transform: translateX(22px);
+        transform: translateX(20px);
     }
 
-    /* Tax info panel */
+    /* Tax info panel - smaller text */
     .tax-info-panel {
-        padding: 16px;
-        margin-bottom: 16px;
+        padding: 12px;
+        margin-bottom: 14px;
     }
 
     .tax-info-panel h4 {
-        font-size: 16px;
-        margin-bottom: 8px;
+        font-size: 14px;
+        margin-bottom: 6px;
+        line-height: 1.3;
     }
 
     .tax-info-panel ul {
-        margin-left: 16px;
+        margin-left: 14px;
     }
 
     .tax-info-panel li {
-        font-size: 13px;
-        margin-bottom: 6px;
+        font-size: 11px; /* Reduced from 13px */
+        margin-bottom: 4px;
+        line-height: 1.4;
     }
 
-    /* Summary cards - single column */
+    /* Summary cards - single column with smaller text */
     .summary-cards {
         grid-template-columns: 1fr;
-        gap: 16px;
-        margin-bottom: 20px;
-    }
-
-    .summary-card {
-        padding: 16px;
-    }
-
-    .stat-value {
-        font-size: 22px;
-        margin-bottom: 6px;
-    }
-
-    .stat-label {
-        font-size: 13px;
-    }
-
-    /* Chart adjustments */
-    .chart-container {
-        padding: 10px;
-        margin-bottom: 20px;
-    }
-
-    .chart-wrapper {
-        height: 280px;
-    }
-
-    /* Chart placeholder */
-    .placeholder-content {
-        max-width: 280px;
-        padding: 0 16px;
-    }
-
-    .placeholder-icon {
-        width: 120px;
-        height: 80px;
-        margin-bottom: 16px;
-    }
-
-    .placeholder-title {
-        font-size: 18px;
-        margin-bottom: 8px;
-    }
-
-    .placeholder-subtitle {
-        font-size: 14px;
-        margin-bottom: 20px;
-    }
-
-    .placeholder-steps {
         gap: 12px;
-    }
-
-    .step-item {
-        font-size: 12px;
-        gap: 8px;
-    }
-
-    .step-number {
-        width: 20px;
-        height: 20px;
-        font-size: 10px;
-    }
-
-    /* Tabs adjustments */
-    .tabs-container {
-        margin-bottom: 20px;
-    }
-
-    .tabs-nav {
         margin-bottom: 16px;
-        padding: 4px;
-    }
-
-    .tab-button {
-        padding: 10px 8px;
-        font-size: 14px;
-        text-align: center;
-    }
-
-    /* Table adjustments */
-    .table-wrapper {
-        padding: 16px 8px;
-        overflow-x: auto;
-        -webkit-overflow-scrolling: touch;
-    }
-
-    /* SWP table header */
-    .swp-table-header {
-        flex-direction: column;
-        gap: 12px;
-        align-items: stretch;
-        margin-bottom: 16px;
-    }
-
-    .current-year-indicator {
-        font-size: 16px;
-        text-align: center;
-    }
-
-    .year-navigation {
-        justify-content: center;
-        gap: 12px;
-    }
-
-    .nav-button {
-        padding: 8px 12px;
-        font-size: 12px;
-        gap: 4px;
-    }
-
-    .nav-button svg {
-        width: 14px;
-        height: 14px;
-    }
-
-    /* Table styles for mobile */
-    table {
-        min-width: 280px;
-        font-size: 12px;
-    }
-
-    th, td {
-        padding: 8px 4px;
-        font-size: 11px;
-    }
-
-    th {
-        padding: 10px 6px;
-        font-size: 10px;
-        letter-spacing: 0.3px;
-    }
-
-    /* Make table scrollable horizontally */
-    .swp-table-container {
-        overflow-x: auto;
-        -webkit-overflow-scrolling: touch;
-    }
-
-    /* Compliance alert */
-    .compliance-alert {
-        padding: 16px;
-        margin-top: 20px;
-    }
-
-    .compliance-alert h4 {
-        font-size: 16px;
-        margin-bottom: 12px;
-    }
-
-    .compliance-alert ul {
-        margin-left: 16px;
-    }
-
-    .compliance-alert li {
-        font-size: 13px;
-        margin-bottom: 6px;
-    }
-
-    /* Validation errors */
-    .validation-error {
-        font-size: 12px;
-        margin-top: 6px;
-    }
-
-    /* Ensure inputs don't cause horizontal scroll */
-    .form-group input,
-    .form-group select,
-    .date-input {
-        max-width: 100%;
-        box-sizing: border-box;
-    }
-
-    /* Adjust container max-width for mobile */
-    .container {
-        max-width: 100%;
-        margin: 0;
-    }
-}
-
-/* Extra small screens (320px and below) */
-@media screen and (max-width: 320px) {
-    body {
-        padding: 8px;
-    }
-
-    .header {
-        padding: 16px 12px;
-    }
-
-    .header h1 {
-        font-size: 20px;
-    }
-
-    .input-card,
-    .results-card {
-        padding: 16px 12px;
-    }
-
-    .form-group input,
-    .form-group select,
-    .date-input {
-        padding: 10px;
     }
 
     .summary-card {
@@ -387,91 +193,331 @@
     }
 
     .stat-value {
-        font-size: 20px;
+        font-size: 18px; /* Reduced from 22px */
+        margin-bottom: 4px;
+        line-height: 1.2;
+    }
+
+    .stat-label {
+        font-size: 11px; /* Reduced from 13px */
+        line-height: 1.3;
+    }
+
+    /* Chart adjustments */
+    .chart-container {
+        padding: 12px; /* Reduced padding */
+        margin-bottom: 16px;
+        position: relative;
     }
 
     .chart-wrapper {
-        height: 250px;
+        height: 260px;
     }
 
+    /* Chart placeholder - FIXED ALIGNMENT */
+    .placeholder-content {
+        max-width: 100%;
+        width: 100%;
+        padding: 20px 12px; /* Match chart-container padding */
+        margin: 0 auto;
+        text-align: center;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-height: 240px; /* Ensure consistent height */
+    }
+
+    .placeholder-icon {
+        width: 100px; /* Reduced size */
+        height: 60px;
+        margin-bottom: 12px;
+        flex-shrink: 0;
+    }
+
+    .placeholder-title {
+        font-size: 16px; /* Reduced from 18px */
+        margin-bottom: 6px;
+        line-height: 1.3;
+        color: inherit;
+    }
+
+    .placeholder-subtitle {
+        font-size: 12px; /* Reduced from 14px */
+        margin-bottom: 16px;
+        line-height: 1.4;
+        opacity: 0.7;
+    }
+
+    .placeholder-steps {
+        gap: 10px;
+        width: 100%;
+        max-width: 280px;
+    }
+
+    .step-item {
+        font-size: 11px; /* Reduced from 12px */
+        gap: 6px;
+        line-height: 1.3;
+        text-align: left;
+    }
+
+    .step-number {
+        width: 18px;
+        height: 18px;
+        font-size: 9px;
+        flex-shrink: 0;
+    }
+
+    /* Tabs adjustments - smaller text */
+    .tabs-container {
+        margin-bottom: 16px;
+    }
+
+    .tabs-nav {
+        margin-bottom: 12px;
+        padding: 3px;
+    }
+
+    .tab-button {
+        padding: 8px 6px;
+        font-size: 12px; /* Reduced from 14px */
+        text-align: center;
+        line-height: 1.3;
+    }
+
+    /* Table adjustments - smaller text */
     .table-wrapper {
         padding: 12px 6px;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    /* SWP table header - smaller text */
+    .swp-table-header {
+        flex-direction: column;
+        gap: 10px;
+        align-items: stretch;
+        margin-bottom: 12px;
+    }
+
+    .current-year-indicator {
+        font-size: 14px; /* Reduced from 16px */
+        text-align: center;
+        line-height: 1.3;
+    }
+
+    .year-navigation {
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .nav-button {
+        padding: 6px 10px;
+        font-size: 11px; /* Reduced from 12px */
+        gap: 3px;
+        line-height: 1.2;
+    }
+
+    .nav-button svg {
+        width: 12px;
+        height: 12px;
+    }
+
+    /* Table styles for mobile - much smaller text */
+    table {
+        min-width: 280px;
+        font-size: 10px; /* Reduced from 12px */
     }
 
     th, td {
         padding: 6px 3px;
-        font-size: 10px;
+        font-size: 9px; /* Reduced from 11px */
+        line-height: 1.2;
     }
 
-    .placeholder-content {
-        max-width: 240px;
-        padding: 0 12px;
+    th {
+        padding: 8px 4px;
+        font-size: 8px; /* Reduced from 10px */
+        letter-spacing: 0.2px;
     }
 
-    .placeholder-icon {
-        width: 100px;
-        height: 60px;
+    /* Compliance alert - smaller text */
+    .compliance-alert {
+        padding: 12px;
+        margin-top: 16px;
     }
 
-    .placeholder-title {
-        font-size: 16px;
+    .compliance-alert h4 {
+        font-size: 14px;
+        margin-bottom: 8px;
+        line-height: 1.3;
+    }
+
+    .compliance-alert ul {
+        margin-left: 12px;
+    }
+
+    .compliance-alert li {
+        font-size: 11px; /* Reduced from 13px */
+        margin-bottom: 4px;
+        line-height: 1.4;
+    }
+
+    /* Validation errors - smaller text */
+    .validation-error {
+        font-size: 10px; /* Reduced from 12px */
+        margin-top: 4px;
+        line-height: 1.3;
+    }
+
+    /* Container adjustments */
+    .container {
+        max-width: 100%;
+        margin: 0;
+        padding: 0;
     }
 }
 
-/* Landscape orientation adjustments for mobile */
-@media screen and (max-width: 414px) and (orientation: landscape) {
-    .chart-wrapper {
-        height: 200px;
+/* Extra small screens (320px and below) - even smaller text */
+@media screen and (max-width: 320px) {
+    body {
+        padding: 6px;
+        font-size: 12px;
     }
 
     .header {
-        padding: 16px;
-        margin-bottom: 16px;
+        padding: 12px 8px;
     }
 
     .header h1 {
-        font-size: 20px;
+        font-size: 18px;
+        line-height: 1.2;
     }
 
     .header p {
-        font-size: 14px;
+        font-size: 13px;
     }
 
-    .summary-cards {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 12px;
+    .input-card,
+    .results-card {
+        padding: 12px 8px;
+    }
+
+    .section-title {
+        font-size: 15px;
+    }
+
+    .form-group label {
+        font-size: 11px;
+    }
+
+    .form-group input,
+    .form-group select,
+    .date-input {
+        padding: 8px;
+        font-size: 13px;
+    }
+
+    .summary-card {
+        padding: 10px;
+    }
+
+    .stat-value {
+        font-size: 16px;
+    }
+
+    .stat-label {
+        font-size: 10px;
+    }
+
+    .chart-wrapper {
+        height: 220px;
+    }
+
+    .placeholder-content {
+        padding: 16px 8px;
+        min-height: 200px;
     }
 
     .placeholder-icon {
         width: 80px;
-        height: 50px;
+        height: 48px;
+    }
+
+    .placeholder-title {
+        font-size: 14px;
+    }
+
+    .placeholder-subtitle {
+        font-size: 11px;
+    }
+
+    .step-item {
+        font-size: 10px;
+    }
+
+    .step-number {
+        width: 16px;
+        height: 16px;
+        font-size: 8px;
+    }
+
+    table {
+        font-size: 9px;
+    }
+
+    th, td {
+        padding: 4px 2px;
+        font-size: 8px;
+    }
+
+    th {
+        font-size: 7px;
+    }
+}
+
+/* Landscape orientation - maintain smaller text */
+@media screen and (max-width: 414px) and (orientation: landscape) {
+    .chart-wrapper {
+        height: 180px;
+    }
+
+    .header {
+        padding: 12px;
         margin-bottom: 12px;
     }
+
+    .header h1 {
+        font-size: 18px;
+    }
+
+    .header p {
+        font-size: 13px;
+    }
+
+    .summary-cards {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
+    }
+
+    .placeholder-content {
+        min-height: 160px;
+        padding: 12px;
+    }
+
+    .placeholder-icon {
+        width: 70px;
+        height: 40px;
+        margin-bottom: 8px;
+    }
+
+    .placeholder-title {
+        font-size: 14px;
+    }
+
+    .placeholder-subtitle {
+        font-size: 11px;
+    }
 }
-
-/* Touch-friendly improvements */
-@media screen and (max-width: 414px) {
-    /* Increase touch targets */
-    .toggle-switch,
-    .nav-button,
-    .tab-button,
-    .date-picker-btn,
-    .nav-btn {
-        min-height: 44px;
-        min-width: 44px;
-    }
-
-    /* Improve scrolling on tables */
-    .table-wrapper {
-        scroll-behavior: smooth;
-    }
-
-    /* Add visual feedback for touch */
-    .nav-button:active,
-    .tab-button:active,
-    .toggle-switch:active {
-        transform: scale(0.98);
-    }
-}
-
-
