@@ -196,7 +196,7 @@
 
     /* Chart adjustments */
     .chart-container {
-        padding: 16px;
+        padding: 10px;
         margin-bottom: 20px;
     }
 
@@ -473,4 +473,5 @@
         transform: scale(0.98);
     }
 }
+
 
