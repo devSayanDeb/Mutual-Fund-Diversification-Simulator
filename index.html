@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mutual Fund Diversification Simulator</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Mutual Fund Diversification Simulator</h1>
+            <p>Advanced portfolio simulation with tax-optimized SWP planning</p>
+        </div>
+
+        <div class="main-grid">
+            <div class="input-card">
+                <div class="section-title">Investment Configuration</div>
+
+                <div class="form-group">
+                    <label>Investment Start Date</label>
+                    <div class="date-input-group">
+                        <div class="date-input-wrapper">
+                            <input type="text" class="date-input" id="startDate"
+                                placeholder="Select investment start date" readonly>
+                            <svg class="date-picker-icon" viewBox="0 0 24 24">
+                                <path
+                                    d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z" />
+                            </svg>
+                        </div>
+                        <div class="custom-date-picker" id="startDatePicker">
+                            <div class="date-picker-header">
+                                <div class="month-year-nav">
+                                    <button class="nav-btn year-nav" id="startPrevYear" type="button">‹‹</button>
+                                    <button class="nav-btn" id="startPrevMonth" type="button">‹</button>
+                                    <div class="current-month-year" id="startCurrentMonthYear"></div>
+                                    <button class="nav-btn" id="startNextMonth" type="button">›</button>
+                                    <button class="nav-btn year-nav" id="startNextYear" type="button">››</button>
+                                </div>
+                            </div>
+                            <div class="date-picker-calendar">
+                                <div class="calendar-grid" id="startCalendarGrid"></div>
+                            </div>
+                            <div class="date-picker-footer">
+                                <button class="date-picker-btn today-btn" id="startTodayBtn"
+                                    type="button">Today</button>
+                                <button class="date-picker-btn clear-btn" id="startClearBtn"
+                                    type="button">Clear</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>SWP Initiation Date</label>
+                    <div class="date-input-group">
+                        <div class="date-input-wrapper">
+                            <input type="text" class="date-input" id="swpStartDate" placeholder="Select SWP start date"
+                                readonly>
+                            <svg class="date-picker-icon" viewBox="0 0 24 24">
+                                <path
+                                    d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z" />
+                            </svg>
+                        </div>
+                        <div class="custom-date-picker" id="swpStartDatePicker">
+                            <div class="date-picker-header">
+                                <div class="month-year-nav">
+                                    <button class="nav-btn year-nav" id="swpPrevYear" type="button">‹‹</button>
+                                    <button class="nav-btn" id="swpPrevMonth" type="button">‹</button>
+                                    <div class="current-month-year" id="swpCurrentMonthYear"></div>
+                                    <button class="nav-btn" id="swpNextMonth" type="button">›</button>
+                                    <button class="nav-btn year-nav" id="swpNextYear" type="button">››</button>
+                                </div>
+                            </div>
+                            <div class="date-picker-calendar">
+                                <div class="calendar-grid" id="swpCalendarGrid"></div>
+                            </div>
+                            <div class="date-picker-footer">
+                                <button class="date-picker-btn today-btn" id="swpTodayBtn" type="button">Today</button>
+                                <button class="date-picker-btn clear-btn" id="swpClearBtn" type="button">Clear</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="validation-error" id="dateError"></div>
+                </div>
+
+                <div class="section-divider"></div>
+
+                <div class="tax-info-panel">
+                    <h4>Tax Framework</h4>
+                    <ul>
+                        <li><strong>LTCG:</strong> 12.5% on capital gains (no exemption)</li>
+                        <li><strong>STCG:</strong> 30% for holdings under 12 months</li>
+                        <li><strong>No TDS:</strong> Self-assessment required</li>
+                    </ul>
+                </div>
+
+                <div class="form-group">
+                    <label>Initial Investment Amount (₹)</label>
+                    <input type="number" id="investedAmount" value="" min="0" step="100000"
+                        placeholder="Initial Investment Amount (₹)">
+                </div>
+
+                <div class="form-group">
+                    <label>Simulation Period (Years)</label>
+                    <input type="number" id="simulationYears" value="" min="0" max="30"
+                        placeholder="Simulation Period (Years)">
+                </div>
+
+                <div class="section-divider"></div>
+
+                <div class="section-title">Asset Allocation</div>
+
+                <div class="split-inputs">
+                    <div class="form-group">
+                        <label>Debt Fund (%)</label>
+                        <input type="number" id="debtPercent" value="" min="0" max="100"
+                            placeholder="Put the percentage you want to allocate">
+                    </div>
+                    <div class="form-group">
+                        <label>Equity Fund (%)</label>
+                        <input type="number" id="equityPercent" value="" min="0" max="100"
+                            placeholder="Put the percentage you want to allocate">
+                    </div>
+                </div>
+                <div class="validation-error" id="allocationError"></div>
+
+                <div class="section-divider"></div>
+
+                <div class="section-title">Expected Returns</div>
+
+                <div class="split-inputs">
+                    <div class="form-group">
+                        <label>Debt Fund Expected Return (%)</label>
+                        <input type="number" id="debtReturn" value="" min="0" max="20" step="0.1"
+                            placeholder="Expected Return (%)">
+                    </div>
+                    <div class="form-group">
+                        <label>Equity Fund Expected Return (%)</label>
+                        <input type="number" id="equityReturn" value="" min="0" max="30" step="0.1"
+                            placeholder="Expected Return (%)">
+                    </div>
+                </div>
+
+                <div class="section-divider"></div>
+
+                <div class="section-title">SWP Configuration</div>
+
+                <div class="toggle-group">
+                    <label for="enableSWP">Enable Systematic Withdrawal Plan</label>
+                    <div class="toggle-switch" id="swpToggle">
+                        <input type="checkbox" id="enableSWP" style="display: none;" checked>
+                    </div>
+                </div>
+
+                <div class="swp-inputs" id="swpInputs">
+                    <div class="form-group">
+                        <label>Initial Monthly SWP Amount (₹)</label>
+                        <input type="number" id="swpAmount" value="" min="0" step="1000"
+                            placeholder="Initial Monthly SWP Amount (₹)">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Annual SWP Increase Rate (%)</label>
+                        <input type="number" id="swpIncrease" value="" min="0" max="20" step="0.1"
+                            placeholder="Annual SWP Increase Rate (%)">
+                    </div>
+                </div>
+            </div>
+
+            <div class="results-card">
+                <div class="summary-cards">
+                    <div class="summary-card">
+                        <div class="stat-value" id="finalPortfolioValue">₹0</div>
+                        <div class="stat-label">Final Portfolio Value</div>
+                    </div>
+                    <div class="summary-card">
+                        <div class="stat-value" id="totalSWPWithdrawn">₹0</div>
+                        <div class="stat-label">Total SWP Withdrawn</div>
+                    </div>
+                    <div class="summary-card">
+                        <div class="stat-value" id="totalTaxesPaid">₹0</div>
+                        <div class="stat-label">Total Taxes Paid</div>
+                    </div>
+                    <div class="summary-card">
+                        <div class="stat-value" id="netPortfolioValue">₹0</div>
+                        <div class="stat-label">Net Portfolio Value</div>
+                    </div>
+                </div>
+
+                <div class="chart-container">
+                    <!-- Add this placeholder div -->
+                    <div class="chart-placeholder" id="chartPlaceholder">
+                        <div class="placeholder-content">
+                            <svg class="placeholder-icon" viewBox="0 0 200 120" xmlns="http://www.w3.org/2000/svg">
+                                <!-- Investment growth chart illustration -->
+                                <defs>
+                                    <linearGradient id="chartGradient" x1="0%" y1="100%" x2="0%" y2="0%">
+                                        <stop offset="0%" style="stop-color:#FF6B6B;stop-opacity:0.2" />
+                                        <stop offset="50%" style="stop-color:#4ECDC4;stop-opacity:0.3" />
+                                        <stop offset="100%" style="stop-color:#45B7D1;stop-opacity:0.4" />
+                                    </linearGradient>
+                                </defs>
+
+                                <!-- Chart background -->
+                                <rect x="20" y="20" width="160" height="80" fill="rgba(255, 255, 255, 0.05)" rx="8"
+                                    stroke="rgba(255, 255, 255, 0.1)" stroke-width="1" />
+
+                                <!-- Chart lines -->
+                                <path d="M30 85 Q60 70 90 60 T150 40" stroke="#FF6B6B" stroke-width="2" fill="none"
+                                    opacity="0.7" />
+                                <path d="M30 90 Q60 80 90 70 T150 50" stroke="#4ECDC4" stroke-width="2" fill="none"
+                                    opacity="0.7" />
+                                <path d="M30 80 Q60 60 90 45 T150 25" stroke="#45B7D1" stroke-width="3" fill="none"
+                                    opacity="0.8" />
+
+                                <!-- Data points -->
+                                <circle cx="30" cy="85" r="2" fill="#FF6B6B" opacity="0.8" />
+                                <circle cx="70" cy="70" r="2" fill="#FF6B6B" opacity="0.8" />
+                                <circle cx="110" cy="55" r="2" fill="#FF6B6B" opacity="0.8" />
+                                <circle cx="150" cy="40" r="2" fill="#FF6B6B" opacity="0.8" />
+
+                                <circle cx="30" cy="90" r="2" fill="#4ECDC4" opacity="0.8" />
+                                <circle cx="70" cy="80" r="2" fill="#4ECDC4" opacity="0.8" />
+                                <circle cx="110" cy="70" r="2" fill="#4ECDC4" opacity="0.8" />
+                                <circle cx="150" cy="50" r="2" fill="#4ECDC4" opacity="0.8" />
+
+                                <circle cx="30" cy="80" r="3" fill="#45B7D1" opacity="0.9" />
+                                <circle cx="70" cy="60" r="3" fill="#45B7D1" opacity="0.9" />
+                                <circle cx="110" cy="45" r="3" fill="#45B7D1" opacity="0.9" />
+                                <circle cx="150" cy="25" r="3" fill="#45B7D1" opacity="0.9" />
+
+                                <!-- Grid lines -->
+                                <line x1="30" y1="100" x2="170" y2="100" stroke="rgba(255, 255, 255, 0.1)"
+                                    stroke-width="1" />
+                                <line x1="30" y1="75" x2="170" y2="75" stroke="rgba(255, 255, 255, 0.05)"
+                                    stroke-width="1" />
+                                <line x1="30" y1="50" x2="170" y2="50" stroke="rgba(255, 255, 255, 0.05)"
+                                    stroke-width="1" />
+                                <line x1="30" y1="25" x2="170" y2="25" stroke="rgba(255, 255, 255, 0.05)"
+                                    stroke-width="1" />
+                            </svg>
+
+                            <h3 class="placeholder-title">Portfolio Growth Visualization</h3>
+                            <p class="placeholder-subtitle">Enter your investment details to see portfolio projections
+                                and tax calculations</p>
+
+                            <div class="placeholder-steps">
+                                <div class="step-item">
+                                    <div class="step-number">1</div>
+                                    <span>Set investment amount & dates</span>
+                                </div>
+                                <div class="step-item">
+                                    <div class="step-number">2</div>
+                                    <span>Configure asset allocation</span>
+                                </div>
+                                <div class="step-item">
+                                    <div class="step-number">3</div>
+                                    <span>Define expected returns</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="chart-wrapper">
+                        <canvas id="portfolioChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="tabs-container">
+                    <div class="tabs-nav">
+                        <button class="tab-button active" data-tab="portfolio">Portfolio Summary</button>
+                        <button class="tab-button" data-tab="tax">Annual Tax Summary</button>
+                        <button class="tab-button" data-tab="swp">Monthly SWP Details</button>
+                    </div>
+
+                    <div class="tab-content active" id="portfolio-tab">
+                        <div class="table-wrapper">
+                            <table id="portfolioTable">
+                                <thead>
+                                    <tr>
+                                        <th>Year</th>
+                                        <th>Debt Balance</th>
+                                        <th>Equity Balance</th>
+                                        <th>Annual SWP</th>
+                                        <th>Capital Gains Tax</th>
+                                        <th>Net Portfolio Value</th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="tab-content" id="tax-tab">
+                        <div class="table-wrapper">
+                            <table id="annualTaxTable">
+                                <thead>
+                                    <tr>
+                                        <th>Financial Year</th>
+                                        <th>Total Withdrawals</th>
+                                        <th>Total Capital Gains</th>
+                                        <th>LTCG Tax (12.5%)</th>
+                                        <th>STCG Tax (30%)</th>
+                                        <th>Total Tax</th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="tab-content" id="swp-tab">
+                        <div class="table-wrapper">
+                            <div class="swp-table-header">
+                                <div class="current-year-indicator" id="currentYearLabel">SWP Schedule: Year 1</div>
+                                <div class="year-navigation">
+                                    <button class="nav-button" id="prevYearBtn">
+                                        <svg viewBox="0 0 24 24">
+                                            <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z" />
+                                        </svg>
+                                        Previous Year
+                                    </button>
+                                    <button class="nav-button" id="nextYearBtn">
+                                        Next Year
+                                        <svg viewBox="0 0 24 24">
+                                            <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" />
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="swp-table-container">
+                                <div class="swp-table-slide" id="swpTableSlide">
+                                    <table id="swpTable">
+                                        <thead>
+                                            <tr>
+                                                <th>Withdrawal Date</th>
+                                                <th>Amount</th>
+                                                <th>Holding Period</th>
+                                                <th>Capital Gains</th>
+                                                <th>Tax Rate</th>
+                                                <th>Tax Amount</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody></tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="compliance-alert">
+            <h4>Important Tax Compliance Information</h4>
+            <ul>
+                <li><strong>No TDS Deduction:</strong> Mutual funds do not deduct tax at source on SWP withdrawals</li>
+                <li><strong>Self-Assessment:</strong> Calculate and pay tax during ITR filing based on capital gains
+                </li>
+                <li><strong>Advance Tax:</strong> Pay quarterly if annual tax liability exceeds ₹10,000</li>
+                <li><strong>Financial Year:</strong> Tax calculations based on April 1 - March 31 periods</li>
+            </ul>
+        </div>
+    </div>
+</body>
+
+<script src="script.js"></script>
+
+</html>
