@@ -1,5 +1,5 @@
 /* Mobile Responsive Styles - 320px to 414px */
-@media screen and (max-width: 414px) {
+@media screen and (max-width: 450px) {
     /* Base adjustments */
     body {
         padding: 12px;
@@ -473,3 +473,4 @@
         transform: scale(0.98);
     }
 }
+
