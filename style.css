@@ -583,9 +583,9 @@
  }
 
  /* Make sure this is added */
- /* .chart-container {
+ .chart-container {
             position: relative;
-        } */
+        }
 
  .chart-wrapper {
      position: relative;
@@ -856,4 +856,5 @@
 
  input[type="number"]::-moz-number-spinner {
      display: none;
+
  }
