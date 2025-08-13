@@ -1,5 +1,5 @@
 /* Mobile Responsive Styles - Updated with smaller text and alignment fixes */
-@media screen and (max-width: 414px) {
+@media screen and (max-width: 500px) {
     /* Base adjustments - reduced font sizes */
     body {
         padding: 12px;
@@ -521,3 +521,4 @@
         font-size: 11px;
     }
 }
+
