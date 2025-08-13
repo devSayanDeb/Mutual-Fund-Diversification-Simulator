@@ -1,0 +1,475 @@
+/* Mobile Responsive Styles - 320px to 414px */
+@media screen and (max-width: 414px) {
+    /* Base adjustments */
+    body {
+        padding: 12px;
+        font-size: 14px;
+    }
+
+    /* Header adjustments */
+    .header {
+        margin-bottom: 24px;
+        padding: 20px 16px;
+    }
+
+    .header h1 {
+        font-size: 24px;
+        margin-bottom: 8px;
+    }
+
+    .header p {
+        font-size: 16px;
+    }
+
+    /* Main grid - stack vertically on mobile */
+    .main-grid {
+        display: block;
+        gap: 20px;
+    }
+
+    /* Card adjustments */
+    .input-card,
+    .results-card {
+        padding: 20px 16px;
+        margin-bottom: 20px;
+    }
+
+    .section-title {
+        font-size: 18px;
+        margin-bottom: 16px;
+    }
+
+    .section-title::after {
+        width: 120px;
+    }
+
+    .section-divider {
+        margin: 20px 0;
+    }
+
+    /* Form adjustments */
+    .form-group {
+        margin-bottom: 16px;
+    }
+
+    .form-group label {
+        font-size: 14px;
+        margin-bottom: 6px;
+    }
+
+    .form-group input,
+    .form-group select {
+        padding: 12px;
+        font-size: 16px; /* Prevents zoom on iOS */
+    }
+
+    /* Split inputs - stack on mobile */
+    .split-inputs {
+        display: block;
+        gap: 12px;
+    }
+
+    .split-inputs .form-group:first-child {
+        margin-bottom: 12px;
+    }
+
+    /* Date picker adjustments */
+    .date-input {
+        padding: 12px 40px 12px 12px;
+        font-size: 16px;
+    }
+
+    .date-picker-icon {
+        right: 12px;
+        width: 18px;
+        height: 18px;
+    }
+
+    .custom-date-picker {
+        left: -8px;
+        right: -8px;
+        margin-top: 4px;
+    }
+
+    .date-picker-header {
+        padding: 16px;
+    }
+
+    .current-month-year {
+        font-size: 16px;
+        min-width: 140px;
+    }
+
+    .nav-btn {
+        width: 28px;
+        height: 28px;
+        font-size: 16px;
+    }
+
+    .date-picker-calendar {
+        padding: 16px 8px;
+    }
+
+    .calendar-day {
+        width: 36px;
+        height: 36px;
+        font-size: 12px;
+    }
+
+    .calendar-day-header {
+        padding: 8px;
+        font-size: 10px;
+    }
+
+    .date-picker-footer {
+        padding: 16px;
+        gap: 8px;
+    }
+
+    .date-picker-btn {
+        padding: 8px 16px;
+        font-size: 14px;
+    }
+
+    /* Toggle adjustments */
+    .toggle-group {
+        gap: 12px;
+        margin-bottom: 16px;
+    }
+
+    .toggle-switch {
+        width: 50px;
+        height: 28px;
+        border-radius: 14px;
+    }
+
+    .toggle-switch::before {
+        width: 20px;
+        height: 20px;
+        top: 3px;
+        left: 3px;
+    }
+
+    .toggle-switch.active::before {
+        transform: translateX(22px);
+    }
+
+    /* Tax info panel */
+    .tax-info-panel {
+        padding: 16px;
+        margin-bottom: 16px;
+    }
+
+    .tax-info-panel h4 {
+        font-size: 16px;
+        margin-bottom: 8px;
+    }
+
+    .tax-info-panel ul {
+        margin-left: 16px;
+    }
+
+    .tax-info-panel li {
+        font-size: 13px;
+        margin-bottom: 6px;
+    }
+
+    /* Summary cards - single column */
+    .summary-cards {
+        grid-template-columns: 1fr;
+        gap: 16px;
+        margin-bottom: 20px;
+    }
+
+    .summary-card {
+        padding: 16px;
+    }
+
+    .stat-value {
+        font-size: 22px;
+        margin-bottom: 6px;
+    }
+
+    .stat-label {
+        font-size: 13px;
+    }
+
+    /* Chart adjustments */
+    .chart-container {
+        padding: 16px;
+        margin-bottom: 20px;
+    }
+
+    .chart-wrapper {
+        height: 280px;
+    }
+
+    /* Chart placeholder */
+    .placeholder-content {
+        max-width: 280px;
+        padding: 0 16px;
+    }
+
+    .placeholder-icon {
+        width: 120px;
+        height: 80px;
+        margin-bottom: 16px;
+    }
+
+    .placeholder-title {
+        font-size: 18px;
+        margin-bottom: 8px;
+    }
+
+    .placeholder-subtitle {
+        font-size: 14px;
+        margin-bottom: 20px;
+    }
+
+    .placeholder-steps {
+        gap: 12px;
+    }
+
+    .step-item {
+        font-size: 12px;
+        gap: 8px;
+    }
+
+    .step-number {
+        width: 20px;
+        height: 20px;
+        font-size: 10px;
+    }
+
+    /* Tabs adjustments */
+    .tabs-container {
+        margin-bottom: 20px;
+    }
+
+    .tabs-nav {
+        margin-bottom: 16px;
+        padding: 4px;
+    }
+
+    .tab-button {
+        padding: 10px 8px;
+        font-size: 14px;
+        text-align: center;
+    }
+
+    /* Table adjustments */
+    .table-wrapper {
+        padding: 16px 8px;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    /* SWP table header */
+    .swp-table-header {
+        flex-direction: column;
+        gap: 12px;
+        align-items: stretch;
+        margin-bottom: 16px;
+    }
+
+    .current-year-indicator {
+        font-size: 16px;
+        text-align: center;
+    }
+
+    .year-navigation {
+        justify-content: center;
+        gap: 12px;
+    }
+
+    .nav-button {
+        padding: 8px 12px;
+        font-size: 12px;
+        gap: 4px;
+    }
+
+    .nav-button svg {
+        width: 14px;
+        height: 14px;
+    }
+
+    /* Table styles for mobile */
+    table {
+        min-width: 280px;
+        font-size: 12px;
+    }
+
+    th, td {
+        padding: 8px 4px;
+        font-size: 11px;
+    }
+
+    th {
+        padding: 10px 6px;
+        font-size: 10px;
+        letter-spacing: 0.3px;
+    }
+
+    /* Make table scrollable horizontally */
+    .swp-table-container {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    /* Compliance alert */
+    .compliance-alert {
+        padding: 16px;
+        margin-top: 20px;
+    }
+
+    .compliance-alert h4 {
+        font-size: 16px;
+        margin-bottom: 12px;
+    }
+
+    .compliance-alert ul {
+        margin-left: 16px;
+    }
+
+    .compliance-alert li {
+        font-size: 13px;
+        margin-bottom: 6px;
+    }
+
+    /* Validation errors */
+    .validation-error {
+        font-size: 12px;
+        margin-top: 6px;
+    }
+
+    /* Ensure inputs don't cause horizontal scroll */
+    .form-group input,
+    .form-group select,
+    .date-input {
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+
+    /* Adjust container max-width for mobile */
+    .container {
+        max-width: 100%;
+        margin: 0;
+    }
+}
+
+/* Extra small screens (320px and below) */
+@media screen and (max-width: 320px) {
+    body {
+        padding: 8px;
+    }
+
+    .header {
+        padding: 16px 12px;
+    }
+
+    .header h1 {
+        font-size: 20px;
+    }
+
+    .input-card,
+    .results-card {
+        padding: 16px 12px;
+    }
+
+    .form-group input,
+    .form-group select,
+    .date-input {
+        padding: 10px;
+    }
+
+    .summary-card {
+        padding: 12px;
+    }
+
+    .stat-value {
+        font-size: 20px;
+    }
+
+    .chart-wrapper {
+        height: 250px;
+    }
+
+    .table-wrapper {
+        padding: 12px 6px;
+    }
+
+    th, td {
+        padding: 6px 3px;
+        font-size: 10px;
+    }
+
+    .placeholder-content {
+        max-width: 240px;
+        padding: 0 12px;
+    }
+
+    .placeholder-icon {
+        width: 100px;
+        height: 60px;
+    }
+
+    .placeholder-title {
+        font-size: 16px;
+    }
+}
+
+/* Landscape orientation adjustments for mobile */
+@media screen and (max-width: 414px) and (orientation: landscape) {
+    .chart-wrapper {
+        height: 200px;
+    }
+
+    .header {
+        padding: 16px;
+        margin-bottom: 16px;
+    }
+
+    .header h1 {
+        font-size: 20px;
+    }
+
+    .header p {
+        font-size: 14px;
+    }
+
+    .summary-cards {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+
+    .placeholder-icon {
+        width: 80px;
+        height: 50px;
+        margin-bottom: 12px;
+    }
+}
+
+/* Touch-friendly improvements */
+@media screen and (max-width: 414px) {
+    /* Increase touch targets */
+    .toggle-switch,
+    .nav-button,
+    .tab-button,
+    .date-picker-btn,
+    .nav-btn {
+        min-height: 44px;
+        min-width: 44px;
+    }
+
+    /* Improve scrolling on tables */
+    .table-wrapper {
+        scroll-behavior: smooth;
+    }
+
+    /* Add visual feedback for touch */
+    .nav-button:active,
+    .tab-button:active,
+    .toggle-switch:active {
+        transform: scale(0.98);
+    }
+}
